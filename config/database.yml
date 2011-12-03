@@ -1,0 +1,24 @@
+development:
+  adapter: postgresql
+  database: planswithfriends_dev
+  username: postgres
+  password: postgres
+  host: localhost
+test:
+  adapter: postgresql
+  database: planswithfriends_test
+  username: postgres
+  password: postgres
+  host: localhost
+staging:
+  adapter: postgresql
+  database: planswithfriends_staging
+  username: postgres
+  password: postgres
+  host: localhost
+production:
+  adapter: postgresql
+  database: planswithfriends_prod
+  username: postgres
+  password: postgres
+  host: localhost

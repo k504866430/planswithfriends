@@ -1,0 +1,25 @@
+<h1>Listing socialize_plans</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Identifier</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @socialize_plans.each do |socialize_plan| %>
+  <tr>
+    <td><%= socialize_plan.name %></td>
+    <td><%= socialize_plan.identifier %></td>
+    <td><%= link_to 'Show', socialize_plan %></td>
+    <td><%= link_to 'Edit', edit_socialize_plan_path(socialize_plan) %></td>
+    <td><%= link_to 'Destroy', socialize_plan, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Socialize plan', new_socialize_plan_path %>

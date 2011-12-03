@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @socialize_plan.name %>
+</p>
+
+<p>
+  <b>Identifier:</b>
+  <%= @socialize_plan.identifier %>
+</p>
+
+
+<%= link_to 'Edit', edit_socialize_plan_path(@socialize_plan) %> |
+<%= link_to 'Back', socialize_plans_path %>
