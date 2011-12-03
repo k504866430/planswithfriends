@@ -7,6 +7,7 @@ class SocializePlansController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @socialize_plans }
+      format.json  { render :json => @socialize_plans }
     end
   end
 
