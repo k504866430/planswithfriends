@@ -60,11 +60,14 @@ class SocializePlansController < ApplicationController
   # GET /socialize_plans/create_plan?name=XYZ&identifier=XYZ
   def create_plan
     @socialize_plan = SocializePlan.new(:name=>params[:name], :identifier=>params[:identifier])
-
     respond_to do |format|
       if @socialize_plan.save
+        @socialize_plans = SocializePlan.all
+        @socialize_plans.each{|s| SocializePlan.process_activity(s.identifier)}
         render :json => @socialize_plans
       else
+        @socialize_plans = SocializePlan.all
+        @socialize_plans.each{|s| SocializePlan.process_activity(s.identifier)}
         render :json => @socialize_plan.errors,  :status => :unprocessable_entity
       end
     end
