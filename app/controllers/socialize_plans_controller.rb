@@ -19,6 +19,7 @@ class SocializePlansController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @socialize_plan }
+      format.json  { render :json => @socialize_plan }
     end
   end
 
@@ -47,9 +48,24 @@ class SocializePlansController < ApplicationController
       if @socialize_plan.save
         format.html { redirect_to(@socialize_plan, :notice => 'Socialize plan was successfully created.') }
         format.xml  { render :xml => @socialize_plan, :status => :created, :location => @socialize_plan }
+        format.json  { render :json => @socialize_plans }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @socialize_plan.errors, :status => :unprocessable_entity }
+        format.json  { render :json => @socialize_plan.errors,  :status => :unprocessable_entity}
+      end
+    end
+  end
+
+  # GET /socialize_plans/create_plan?name=XYZ&identifier=XYZ
+  def create_plan
+    @socialize_plan = SocializePlan.new(:name=>params[:name], :identifier=>params[:identifier])
+
+    respond_to do |format|
+      if @socialize_plan.save
+        render :json => @socialize_plans
+      else
+        render :json => @socialize_plan.errors,  :status => :unprocessable_entity
       end
     end
   end

@@ -2,7 +2,11 @@ Planswithfriends::Application.routes.draw do
 
   get "home/trigger"
 
-  resources :socialize_plans
+  resources :socialize_plans do
+    collection do
+      get 'create_plan'
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
